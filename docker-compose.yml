@@ -1,0 +1,71 @@
+version: '3.3'
+
+services:
+ notes:
+  build:
+   context: .
+  ports:
+   - 8000:8000
+   - 9229:9229
+  environment:
+   - SERVER_PORT=8000
+   - CONNECTIONSTRING=mongodb://mongo:27017/notes
+  networks:
+   - mongodb
+  volumes:
+   - ./:/app
+   - /app/node_modules
+  command: npm run debug
+
+ mongo:
+  image: mongo:4.2.8
+  ports:
+   - 27017:27017
+  volumes:
+     - ./mongo/data:/data/db
+  networks:
+   - mongodb
+
+ mongo2:
+   image: 'mongo-start'
+   build: ./mongo
+   command: --replSet rs0 --oplogSize 128
+   ports:
+     - '27018:27018'
+   volumes:
+     - ./mongo2/data:/data/db
+     - ./mongo2/conf:/conf
+   networks:
+    - mongodb
+
+ mongo3:
+   image: mongo:4.2.8
+   build: ./mongo
+   command: --replSet rs0 --oplogSize 128
+   ports:
+     - '27019:27019'
+   volumes:
+     - ./mongo3/data:/data/db
+     - ./mongo3/conf:/conf
+   networks:
+    - mongodb
+
+ setting_replicaset:
+   image: 'setting_replicaset'
+   build: ./setting_replicaset
+   networks:
+    - mongodb
+
+ setting_user:
+   image: 'setting_user'
+   build: ./setting_user
+   networks:
+    - mongodb
+
+volumes:
+ mongodb:
+ mongodb_config:
+
+
+networks:
+ mongodb:

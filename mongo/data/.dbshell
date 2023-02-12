@@ -1,0 +1,49 @@
+mongo -u root -p password
+use admin
+use admin
+use admin
+db.getUsers()
+db.getUsers()
+db.getUsers()
+use admin
+db.getUsers()
+db.getUsers()
+use adm
+db.getUsers()
+db.getUsers()
+db.getUsers()
+rs.status()
+rs.status()
+#      MONGO_INITDB_ROOT_USERNAME: root
+db.getUsers()
+db.getUsers()
+db.getUsers()listDatabases
+listDatabases
+show dbs
+show databases
+db.adminCommand({listDatabases: 1})
+show databases
+listDatabases
+db.getUsers()
+db.getUsers()
+db.getUsers()
+show dbs
+show dbs
+db.getUsers()
+db.getUsers()
+show dbs
+db.getUsers()
+db.getUsers()
+show dbs
+show dbs
+db.getUsers()
+use liga
+db.getUsers()
+db.getUsers()
+rs.status()
+rs.status()
+db.getUsers()
+db.getUsers()
+rs.status()
+rs.status()
+db.getUsers()

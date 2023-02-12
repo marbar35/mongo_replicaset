@@ -1,0 +1,8 @@
+#  environment: #   - MONGODB_USERNAME=some_username
+#   - MONGODB_PASSWORD=some_password
+#   - MONGODB_DATABASE=some_db_name
+db.getUsers()
+db.getUsers()
+show databases
+show databases
+show databases
