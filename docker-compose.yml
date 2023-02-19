@@ -16,7 +16,12 @@ services:
    - ./:/app
    - /app/node_modules
   command: npm run debug
-
+  healthcheck:
+    test: curl --request GET --url http://localhost:8000/notes || echo 1
+    interval: 30s
+    timeout: 3s
+    retries: 12
+    
  mongo:
   image: mongo:4.2.8
   ports:
